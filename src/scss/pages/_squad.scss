@@ -1,0 +1,28 @@
+.squad-title {
+  margin-bottom: 2rem;
+  text-align: center;
+
+  h1 {
+    display: inline-block;
+    padding-bottom: .5rem;
+    border-bottom: 1px solid $base-04;
+  }
+}
+
+.people {
+  .person {
+    margin: 1rem 0;
+    background-color: $base-07;
+
+    .name {
+      margin: 0 1rem;
+      padding: .5rem 0;
+      border-bottom: 1px solid $border-color;
+    }
+
+    .desc {
+      margin: 0 1rem;
+      padding: .5rem 0;
+    }
+  }
+}

@@ -1,0 +1,320 @@
+<!doctype html>
+<!--
+
+  Copyright (c) 2016 Resi Respati <http://resir014.tumblr.com>
+
+  You can reuse and/or modify this theme, but as per the MIT license
+  requirements, please keep this copyright notice intact!
+
+  Source code: <https://github.com/resir014/lingkarbelajar.tumblr.com>
+
+  -->
+
+<html class="no-js">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>{block:TagPage}Posts tagged #{Tag} &middot; {/block:TagPage}{block:PostSummary}{PostSummary} &middot; {/block:PostSummary}{Title}</title>
+    <link rel="icon" href="{Favicon}" />
+    <link rel="shortcut icon" href="{Favicon}" />
+    <link rel="apple-touch-icon" href="{PortraitURL-128}" />
+    <link rel="alternate" type="application/rss+xml" href="{RSS}" />
+    {block:Description}
+      <meta name="description" content="{MetaDescription}" />
+    {/block:Description}
+    <meta name="author" content="{text:Blog Author}" />
+
+    <!-- Tumblr Options -->
+    <meta name="text:Blog Author" content="" />
+    <meta name="text:Google Analytics ID" content="" />
+    <meta name="text:Disqus Shortname" content="" />
+
+    <link rel="stylesheet" href="css/theme.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,300italic,400,400italic,600,600italic,700,700italic">
+  </head>
+  <body class="theme-base-0d">
+    <header role="banner" class="sidebar">
+      <div class="container sidebar-sticky">
+        <div class="sidebar-about">
+          <h1>
+            <a href="/">lingkar belajar</a>
+          </h1>
+          {block:Description}
+            <p class="description">{Description}</p>
+          {/block:Description}
+        </div>
+
+        <nav role="navigation" class="sidebar-nav">
+          <a class="sidebar-nav-item" href="/">home</a>
+          <a class="sidebar-nav-item" href="/ask">message</a>
+          {block:HasPages}
+            {block:Pages}
+              <a class="sidebar-nav-item" href="{URL}">{Label}</a>
+            {/block:Pages}
+          {/block:HasPages}
+        </nav>
+
+        {block:Pagination}
+          <section class="pagination">
+            {block:PreviousPage}
+              <a class="pagination-item" href="{PreviousPage}">&larr;</a>
+            {/block:PreviousPage}
+            <span class="pagination-item">page {CurrentPage} of {TotalPages}</span>
+            {block:NextPage}
+              <a class="pagination-item" href="{NextPage}">&rarr;</a>
+            {/block:NextPage}
+          </section>
+        {/block:Pagination}
+      </div>
+    </header>
+
+    <main id="main" role="main" class="container content">
+      {block:Posts}
+        <article class="post{block:Text} text{/block:Text}{block:Photoset} photoset{/block:Photoset}{block:Photo} photo{/block:Photo}{block:Panorama} panorama{/block:Panorama}{block:Quote} quote{/block:Quote}{block:Link} link{/block:Link}{block:Chat} chat{/block:Chat}{block:Audio} audio{/block:Audio}{block:Video} video{/block:Video}{block:Answer} answer{/block:Answer}">
+          {block:Text}
+            <!-- Text -->
+            {block:Title}
+              <h1 class="post-title"><a href="{Permalink}">{Title}</a></h1>
+            {/block:Title}
+
+            {Body}
+          {/block:Text}
+
+          {block:Photo}
+            <!-- Photo -->
+            <div class="photo-container{block:HighRes} high-res{/block:HighRes}">
+              {LinkOpenTag}<img src="{PhotoURL-HighRes}" alt="{PhotoAlt}" />{LinkCloseTag}
+            </div>
+
+            {block:Caption}
+              {Caption}
+            {/block:Caption}
+          {/block:Photo}
+
+          {block:Photoset}
+            <!-- Photoset -->
+            <div class="photoset-grid-lightbox" data-layout="{PhotosetLayout}" data-id="photoset{PostID}">
+              {block:Photos}
+                <img src="{PhotoURL-500}"
+                  {block:HighRes}data-highres="{PhotoURL-HighRes}"{/block:HighRes}
+                  width="{PhotoWidth-500}" height="{PhotoHeight-500}"
+                  {block:Caption}alt="{Caption}"{/block:caption} />
+              {/block:Photos}
+            </div>
+
+            {block:Caption}
+              {Caption}
+            {/block:caption}
+          {/block:Photoset}
+
+          {block:Panorama}
+            <!-- Panorama -->
+            <div class="photo-container">
+              {LinkOpenTag}<img src="{PhotoURL-Panorama}" alt="{PhotoAlt}" />{LinkCLoseTag}
+            </div>
+
+            {block:Caption}
+              {Caption}
+            {/block:Caption}
+          {/block:Panorama}
+
+          {block:Quote}
+            <!-- Quote -->
+            <div class="quote-wrapper">
+              <span class="{Length}">
+                {Quote}
+              </span>
+            </div>
+
+            {block:Source}
+              <div class="source">{Source}</div>
+            {/block:Source}
+          {/block:Quote}
+
+          {block:Link}
+            <!-- Link -->
+            <div class="link-wrapper">
+              <h1><a href="{URL}" class="link" {Target}>{Name} &gt;</a></h1>
+            </div>
+
+            {block:Description}
+              <div class="description">{Description}</div>
+            {/block:Description}
+          {/block:Link}
+
+          {block:Chat}
+            <!-- Chat -->
+            {block:Title}
+              <h1 class="post-title"><a href="{Permalink}">{Title}</a></h1>
+            {/block:Title}
+
+            <div class="chat-messages">
+              {block:Lines}
+                <p class="{Alt} user_{UserNumber}">
+                  {block:Label}
+                    <span class="label">{Label}</span>
+                  {/block:Label}
+
+                  {Line}
+                </p>
+              {/block:Lines}
+            </div>
+          {/block:Chat}
+
+          {block:Video}
+            <!-- Video -->
+            <div class="video-wrapper">
+              {Video-700}
+            </div>
+
+            {block:Caption}
+              <div class="description">{Caption}</div>
+            {/block:Caption}
+          {/block:Video}
+
+          {block:Audio}
+            <!-- Audio -->
+            <div class="audio-container">
+              {block:AudioEmbed}
+                {AudioEmbed color="white"}
+              {/block:AudioEmbed}
+            </div>
+
+            {block:Caption}
+              <div class="description">{Caption}</div>
+            {/block:Caption}
+          {/block:Audio}
+
+          {block:Answer}
+            <!-- Answer -->
+            <div class="note-item asked">
+              <p class="note-item-title asker"><strong>{Asker}</strong> asked:</p>
+              <div class="note-item-content">
+                <span class="question">{Question}</span>
+              </div>
+            </div>
+
+            {block:Answerer}
+              <div class="note-item answered">
+                <p class="note-item-title answerer"><strong>{Answerer}</strong> answered:</p>
+                <div class="note-item-content">
+                  {Answer}
+                </div>
+              </div>
+            {/block:Answerer}
+
+            <div class="replies">
+              {Replies}
+            </div>
+          {/block:Answer}
+
+          {block:Date}
+            {block:HasTags}
+              <section class="post-tags">
+                {block:Tags}
+                  <a class="label-tag" href="{TagURL}">#{Tag}</a>
+                {/block:Tags}
+              </section>
+            {/block:HasTags}
+
+            <section class="post-footer">
+              <div class="post-attribution">
+                {block:RebloggedFrom}
+                  <a class="post-footer-label" href="{ReblogParentURL}">{ReblogParentName}</a>
+                {/block:RebloggedFrom}
+                {block:ContentSource}
+                  <a class="post-footer-label" href="{SourceURL}">{lang:Source}: {SourceTitle}</a>
+                {/block:ContentSource}
+                </ul>
+              </div>
+
+              <div class="post-meta">
+                <a class="post-footer-label" href="{Permalink}" title="{TimeAgo}">
+                  <time>{ShortMonth} {DayOfMonth}{DayOfMonthSuffix}, {Year}</time>
+                </a>
+                {block:NoteCount}
+                  <a class="post-footer-label" href="{Permalink}#notes">{NoteCountWithLabel}</a>
+                {/block:NoteCount}
+              </div>
+            </section>
+          {/block:Date}
+
+        </article>
+
+        {block:PermalinkPage}
+          <section class="post-notes">
+            {PostNotes-64}
+          </section>
+
+          {block:Date}
+            {block:IfDisqusShortname}
+              <section class="post-comments">
+                <div id="disqus_thread"></div>
+                <script type="text/javascript">
+                  (function() {
+                    var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+                    dsq.src = 'http://{text:Disqus Shortname}.disqus.com/embed.js';
+                    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+                  })();
+                </script>
+                <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript={text:Disqus Shortname}">comments powered by Disqus.</a></noscript>
+                <a href="http://disqus.com" class="dsq-brlink">blog comments powered by <span class="logo-disqus">Disqus</span></a>
+              </section>
+            {/block:IfDisqusShortname}
+          {/block:Date}
+        {/block:PermalinkPage}
+      {/block:Posts}
+
+      {block:Pagination}
+        <section class="pagination pagination-centered">
+          {block:PreviousPage}
+            <a class="pagination-item" href="{PreviousPage}">&larr; newer posts</a>
+          {/block:PreviousPage}
+          <span class="pagination-item">page {CurrentPage} of {TotalPages}</span>
+          {block:NextPage}
+            <a class="pagination-item" href="{NextPage}">older posts &rarr;</a>
+          {/block:NextPage}
+        </section>
+      {/block:Pagination}
+
+      {block:PermalinkPagination}
+        <section class="pagination pagination-centered">
+          {block:PreviousPost}
+            <a class="pagination-item" href="{PreviousPost}">&larr; previous post</a>
+          {/block:PreviousPost}
+
+          {block:NextPost}
+            <a class="pagination-item" href="{NextPost}">next post &rarr;</a>
+          {/block:NextPost}
+        </section>
+      {/block:PermalinkPagination}
+    </main>
+
+    <!--[if lt IE 9]>
+      <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+      <script src="http://ie7-js.googlecode.com/svn/version/2.1(beta4)/IE9.js"></script>
+    <![endif]-->
+
+    <!-- Google CDN jQuery -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+
+    <!-- Other Javascript -->
+    <script src="https://cdn.rawgit.com/stylehatch/photoset-grid/v1.0.1/jquery.photoset-grid.min.js"></script>
+    <script src="https://cdn.rawgit.com/jackmoore/colorbox/1.6.4/jquery.colorbox-min.js"></script>
+    <script src="js/theme.js"></script>
+
+    {block:IfGoogleAnalyticsID}
+    <!-- Google Analytics -->
+      <script>
+        (function(b,o,i,l,e,r){b.GoogleAnalyticsObject=l;b[l]||(b[l]=
+          function(){(b[l].q=b[l].q||[]).push(arguments)});b[l].l=+new Date;
+          e=o.createElement(i);r=o.getElementsByTagName(i)[0];
+          e.src='//www.google-analytics.com/analytics.js';
+          r.parentNode.insertBefore(e,r)}(window,document,'script','ga'));
+          ga('create','{text:Google Analytics ID}');ga('send','pageview');
+      </script>
+    {/block:IfGoogleAnalyticsID}
+  </body>
+</html>

@@ -1,0 +1,18 @@
+// Pagination
+//
+// Super lightweight (HTML-wise) blog pagination.
+
+// Pagination items can be `span`s or `a`s
+.pagination-item {
+  display: inline-block;
+  margin-right: .5rem;
+
+  &:last-child {
+    margin-right: 0;
+  }
+}
+
+// Append this class to center the pagination
+.pagination-centered {
+  text-align: center;
+}

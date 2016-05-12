@@ -1,0 +1,74 @@
+// Sidebar
+//
+// Flexible banner for housing site name, intro, and "footer" content. Starts
+// out above content in mobile and later moves to the side with wider viewports.
+//
+
+.sidebar {
+  text-align: center;
+  padding: 2rem 1rem;
+  color: transparentize(#fff, .5);
+  background-color: $base-00;
+  z-index: 1;
+
+  a {
+    color: #fff;
+  }
+
+  @media (min-width: 48em) {
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    width: 18rem;
+    text-align: left;
+  }
+}
+
+// About section
+.sidebar-about {
+  margin-bottom: 1rem;
+
+  h1 {
+    color: #fff;
+    margin-top: 0;
+    font-size: 3.25rem;
+  }
+
+  img {
+    display: inline-block;
+    max-height: 3.25rem;
+  }
+
+  .description {
+    font-weight: 300;
+  }
+}
+
+// Sidebar nav
+.sidebar-nav {
+  margin-bottom: 1rem;
+
+  .sidebar-nav-item {
+    display: block;
+    line-height: 1.75;
+  }
+  .sidebar-nav-item.active {
+    font-weight: bold;
+  }
+}
+
+
+// Sticky sidebar
+//
+// Add the `sidebar-sticky` class to the sidebar's container to affix it the
+// contents to the bottom of the sidebar in tablets and up.
+
+.sidebar-sticky {
+  @media (min-width: 48em) {
+    position: absolute;
+    right:  1rem;
+    bottom: 1rem;
+    left:   1rem;
+  }
+}
