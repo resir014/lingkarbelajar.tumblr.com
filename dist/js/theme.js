@@ -1,4 +1,4 @@
-$('.photoset-grid').photosetGrid({
+$('.photoset-grid-lightbox').photosetGrid({
   highresLinks: true,
   rel: $('.photoset-grid').attr('data-id'),
   gutter: '5px',
